@@ -11,7 +11,6 @@
 #include <Constants.au3>
 
 start()
-;~ readExcel()
 
 Func test()
 
@@ -52,7 +51,7 @@ Func test()
 EndFunc
 
 Func start()
-	MsgBox($MB_ICONINFORMATION, "Thông báo", "Khi chương trình chạy sẽ đóng tất cả các trình duyệt chrome. Hãy chắc chắn rằng bạn đã lưu và đóng tất cả các tab và công việc quan trọng trước khi thực hiện chạy auto")
+	;~ MsgBox($MB_ICONINFORMATION, "Thông báo", "Khi chương trình chạy sẽ đóng tất cả các trình duyệt chrome. Hãy chắc chắn rằng bạn đã lưu và đóng tất cả các tab và công việc quan trọng trước khi thực hiện chạy auto")
 	checkThenCloseChrome()
 	deleteFileInFolder()
 	checkAdminGroup()
@@ -153,6 +152,8 @@ Func checkAdminGroup()
 				EndIf
 			EndIf
 		EndIf
+
+		$sTextOut = $sTextOut & @CRLF
 	Next
 
 	$textIntro = $textIntro & "Số nhóm lỗi: " &  $issueGroup & @CRLF
@@ -166,6 +167,24 @@ Func checkAdminGroup()
 	FileWriteLine($hFile, $sTextOut)
 
 	FileClose($hFile)
+
+	; Hiển thị MsgBox
+	MsgBox($MB_OK, "Thông báo", "Đã thực hiện xong. Mở file kết quả ?")
+
+	; Kiểm tra nút OK được nhấn
+	If @error == 0 Then
+		; Đường dẫn của file txt
+		;~ Local $sFilePath = "path/to/your/file.txt"
+
+		writeLog("$sFilePath: " & $sFilePath)
+		; Kiểm tra xem file có tồn tại không
+		If FileExists($sFilePath) Then
+			; Mở file văn bản trong notepad
+			Run("notepad.exe " & $sFilePath)
+		Else
+			MsgBox($MB_OK, "Thông báo", "File kết quả không tồn tại. Kiểm tra lại trong đường dẫn output")
+		EndIf
+	EndIf
 
 	If $sSession Then _WD_DeleteSession($sSession)
 	

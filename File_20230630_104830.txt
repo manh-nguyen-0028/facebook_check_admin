@@ -1,0 +1,2 @@
+$sURL: https://www.facebook.com/groups/406692874523853/community_roles/Admin---> isAdmin = True
+$sURL: https://www.facebook.com/groups/1026545000731742/community_roles/Admin---> isAdmin = False

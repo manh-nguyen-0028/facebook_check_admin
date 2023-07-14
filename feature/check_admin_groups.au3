@@ -10,6 +10,7 @@
 #include "../utils/common_utils.au3"
 #include <Constants.au3>
 
+Local $CHECK_ADMIN_PREFIX = "members/admins", $CHECK_HIDE_ADMIN_PREFIX = "members/invited_admins"
 start()
 
 Func test()
@@ -54,12 +55,158 @@ Func start()
 	;~ MsgBox($MB_ICONINFORMATION, "Thông báo", "Khi chương trình chạy sẽ đóng tất cả các trình duyệt chrome. Hãy chắc chắn rằng bạn đã lưu và đóng tất cả các tab và công việc quan trọng trước khi thực hiện chạy auto")
 	checkThenCloseChrome()
 	deleteFileInFolder()
-	checkAdminGroup()
+
+	$sSession = SetupChrome()
+
+	$sFilePathCheckAdmin = checkAdminGroup($sSession)
+	$sFilePathCheckHideAdmin = checkHideAdminGroup($sSession)
+
+	; Hiển thị MsgBox
+	MsgBox($MB_OK, "Thông báo", "Đã thực hiện xong. Mở file kết quả ?")
+
+	; Kiểm tra nút OK được nhấn
+	If @error == 0 Then
+		; Đường dẫn của file txt
+		;~ Local $sFilePath = "path/to/your/file.txt"
+
+		writeLog("$sFilePath: " & $sFilePathCheckAdmin)
+		; Kiểm tra xem file có tồn tại không
+		If FileExists($sFilePathCheckAdmin) And FileExists($sFilePathCheckHideAdmin) Then
+			; Mở file văn bản trong notepad
+			Run("notepad.exe " & $sFilePathCheckAdmin)
+
+			; Mở file văn bản trong notepad
+			Run("notepad.exe " & $sFilePathCheckHideAdmin)
+		Else
+			MsgBox($MB_OK, "Thông báo", "File kết quả không tồn tại. Kiểm tra lại trong đường dẫn output")
+		EndIf
+	EndIf
+
+	If $sSession Then _WD_DeleteSession($sSession)
+	
+	_WD_Shutdown()
 	Return True
 EndFunc
 
-Func checkAdminGroup()
-	Local $sSession = SetupChrome()
+Func checkHideAdminGroup($sSession)
+	;~ Local $sSession = SetupChrome()
+
+	Local $sDateTime = @YEAR & @MON & @MDAY & "_" & @HOUR & @MIN & @SEC
+	Local $sFilePath = $sRootDir & "output\\File_Hide_Admin_" & $sDateTime & ".txt"
+
+	Local $sAdminsIdFilePath = $sRootDir & "input\\hide_admins_id.txt"
+
+	; Đọc nội dung của file .txt vào mảng
+	Local $adminIDs
+	If FileExists($sAdminsIdFilePath) Then
+		$adminIDs = FileReadToArray($sAdminsIdFilePath)
+		If @error Then
+			MsgBox(16, "Lỗi", "Đã xảy ra lỗi khi đọc file.")
+			Exit
+		EndIf
+	Else
+		MsgBox(16, "Lỗi", "File không tồn tại.")
+		Exit
+	EndIf
+
+	Local $hFile = FileOpen($sFilePath, $FO_OVERWRITE)
+
+	Local $sURLs = readExcel()
+
+	For $i = 0 To UBound($sURLs) - 1 ; Duyệt qua từng dòng trong mảng
+		$sURLs[$i] = $sURLs[$i] & $CHECK_HIDE_ADMIN_PREFIX
+		writeLog($sURLs[$i])
+	Next
+
+	$textIntro = "Tool check hide admin group - Ekago" & @CRLF 
+
+	$textIntro = $textIntro & "Thời gian quét: " & @HOUR & ":"& @MIN & ":"& @SEC & " " & @MDAY & "-"& @MON & "-"& @YEAR & @CRLF
+
+	$textIntro = $textIntro & "Số nhóm quét: " &  UBound($sURLs) & @CRLF
+
+	$issueGroup = 0
+
+	$idIssueGroup = ""
+
+	$sTextOut = ""
+
+	;~ FileWriteLine($hFile, $textIntro)
+
+	For $i = 0 To UBound($sURLs) - 1
+
+		$sTextOut = $sTextOut & ($i + 1) & "--> "
+
+		ConsoleWrite("$sURLs " & $i & $sURLs[$i] & @CRLF)
+
+		_WD_Navigate($sSession, $sURLs[$i])
+
+		secondWait(2)
+
+		$sElement = findElement($sSession, "//span[contains(text(), 'Quản trị viên & người kiểm duyệt đã mời')]") 
+
+		If @error Then
+			$sTextOut = $sTextOut & "$sURL: " & $sURLs[$i] & " -- Check:  isAdmin = False"
+			$issueGroup = $issueGroup + 1
+			$idIssueGroup = $idIssueGroup & $sURLs[$i] & ";"
+			writeLog("Fail:" & $sTextOut)
+		Else
+			Local $sScript = 'return document.title;'
+			Local $sTitle = _WD_ExecuteScript($sSession, $sScript)
+			$sTextOut = $sTextOut & "$sURL: " & $sURLs[$i] & " -- Title: " & $sTitle &" -- Check:  isAdmin = True " & @CRLF 
+			; Chi check khi lam admin
+			$aChildElements = _WD_FindElement($sSession, $_WD_LOCATOR_ByXPath, "//span[contains(@class, 'xt0psk2')]/a[contains(@class, 'x1i10hfl xjbqb8w x6umtig x1b1mbwd xaqea5y xav7gou x9f619 x1ypdohk xt0psk2 xe8uvvx xdj266r x11i5rnm xat24cr x1mh8g0r xexx8yu x4uap5 x18d9i69 xkhd6sd x16tdsg8 x1hl2dhg xggy1nq x1a2a7pz xt0b8zv xzsf02u x1s688f')]", Default, True)
+			If @error Then
+				ConsoleWrite("Không tìm thấy phần tử con trong phần tử thứ " & $i & @CRLF)
+				_ArrayDisplay($aChildElements)
+			Else
+				$checkIssueGroup = True
+				For $j = 0 To UBound($aChildElements) - 1
+					$bFound = False
+					$sHref = _WD_ElementAction($sSession, $aChildElements[$j], "Attribute", "href")
+					$sCurrentUid = StringRegExpReplace($sHref, "^.*\/(\d+)\/$", "$1")
+					writeLog("href: " & $sHref & "--- sCurrentUid: " & $sCurrentUid)
+					;~ _ArrayDisplay($adminIDs)
+					For $z = 0 To UBound($adminIDs) - 1
+						writeLog("$adminIDs[$z]: " & $adminIDs[$z])
+						If $adminIDs[$z] == $sCurrentUid Then
+							$bFound = True
+							ExitLoop
+						EndIf
+					Next
+					$sText = getTextElement($sSession, $aChildElements[$j])
+					$sTextOut = $sTextOut & "UID:" & $sCurrentUid & "-- Name: " & $sText 
+					If $bFound == False Then 
+						$checkIssueGroup = False
+						$sTextOut = $sTextOut & "-- CANH BAO: USER ID KHONG THUOC DANH SACH ADMIN DINH SAN"
+					EndIf
+					$sTextOut = $sTextOut & @CRLF
+				Next
+				If ($checkIssueGroup == False) Then
+					$issueGroup = $issueGroup + 1
+					$idIssueGroup = $idIssueGroup & $sURLs[$i] & ";"
+				EndIf
+			EndIf
+		EndIf
+
+		$sTextOut = $sTextOut & @CRLF
+	Next
+
+	$textIntro = $textIntro & "Số nhóm lỗi: " &  $issueGroup & @CRLF
+	$textIntro = $textIntro & "ID nhóm lỗi: " &  $idIssueGroup & @CRLF
+	$textIntro = $textIntro & @CRLF
+	$textIntro = $textIntro & "SAU ĐÂY LÀ TỔNG KẾT " & @CRLF
+	$textIntro = $textIntro & @CRLF
+
+	FileWriteLine($hFile, $textIntro)
+
+	FileWriteLine($hFile, $sTextOut)
+
+	FileClose($hFile)
+
+	Return $sFilePath
+EndFunc
+
+Func checkAdminGroup($sSession)
 
 	Local $sDateTime = @YEAR & @MON & @MDAY & "_" & @HOUR & @MIN & @SEC
 	Local $sFilePath = $sRootDir & "output\\File_" & $sDateTime & ".txt"
@@ -82,6 +229,11 @@ Func checkAdminGroup()
 	Local $hFile = FileOpen($sFilePath, $FO_OVERWRITE)
 
 	Local $sURLs = readExcel()
+
+	For $i = 0 To UBound($sURLs) - 1 ; Duyệt qua từng dòng trong mảng
+		$sURLs[$i] = $sURLs[$i] & $CHECK_ADMIN_PREFIX
+		writeLog($sURLs[$i])
+	Next
 
 	$textIntro = "Tool check admin group - Ekago" & @CRLF 
 
@@ -167,30 +319,8 @@ Func checkAdminGroup()
 	FileWriteLine($hFile, $sTextOut)
 
 	FileClose($hFile)
-
-	; Hiển thị MsgBox
-	MsgBox($MB_OK, "Thông báo", "Đã thực hiện xong. Mở file kết quả ?")
-
-	; Kiểm tra nút OK được nhấn
-	If @error == 0 Then
-		; Đường dẫn của file txt
-		;~ Local $sFilePath = "path/to/your/file.txt"
-
-		writeLog("$sFilePath: " & $sFilePath)
-		; Kiểm tra xem file có tồn tại không
-		If FileExists($sFilePath) Then
-			; Mở file văn bản trong notepad
-			Run("notepad.exe " & $sFilePath)
-		Else
-			MsgBox($MB_OK, "Thông báo", "File kết quả không tồn tại. Kiểm tra lại trong đường dẫn output")
-		EndIf
-	EndIf
-
-	If $sSession Then _WD_DeleteSession($sSession)
 	
-	_WD_Shutdown()
-	
-	Return True
+	Return $sFilePath
 EndFunc
 
 Func checkAdminGroupTest()
@@ -353,10 +483,10 @@ Func readExcel()
 		Exit
 	EndIf
 
-	For $i = 0 To UBound($aArray) - 1 ; Duyệt qua từng dòng trong mảng
-		$aArray[$i] = $aArray[$i] & "members/admins"
-		writeLog($aArray[$i])
-	Next
+	;~ For $i = 0 To UBound($aArray) - 1 ; Duyệt qua từng dòng trong mảng
+	;~ 	$aArray[$i] = $aArray[$i] & "members/admins"
+	;~ 	writeLog($aArray[$i])
+	;~ Next
 
 	_Excel_BookClose($oWorkbook)
 	_Excel_Close($oExcel)

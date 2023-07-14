@@ -1,0 +1,77 @@
+Tool check hide admin group - Ekago
+Thời gian quét: 12:45:15 14-07-2023
+Số nhóm quét: 11
+Số nhóm lỗi: 11
+ID nhóm lỗi: https://www.facebook.com/groups/399426588051811/members/invited_admins;https://www.facebook.com/groups/1341654936297605/members/invited_admins;https://www.facebook.com/groups/406692874523853/members/invited_admins;https://www.facebook.com/groups/194989202545166/members/invited_admins;https://www.facebook.com/groups/943094893229330/members/invited_admins;https://www.facebook.com/groups/217512193447437/members/invited_admins;https://www.facebook.com/groups/307426401210472members/invited_admins;https://www.facebook.com/groups/3605718169536028/members/invited_admins;https://www.facebook.com/groups/cho.dau.moi.hai.san.tuoi.song.dai.loan/members/invited_admins;https://www.facebook.com/groups/398762528072350/members/invited_admins;https://www.facebook.com/groups/472911261379646/members/invited_admins;
+
+SAU ĐÂY LÀ TỔNG KẾT 
+
+1--> $sURL: https://www.facebook.com/groups/399426588051811/members/invited_admins -- Title: {"value":"(20+) Osaka Baito | Facebook"} -- Check:  isAdmin = True 
+UID:100078484055998-- Name: Nguyễn Nga-- CANH BAO: USER ID KHONG THUOC DANH SACH ADMIN DINH SAN
+
+2--> $sURL: https://www.facebook.com/groups/1341654936297605/members/invited_admins -- Title: {"value":"(20+) Chợ Hải Sản Tươi Sống Cao Cấp Hà Nội | Facebook"} -- Check:  isAdmin = True 
+UID:https://www.facebook.com/profile.php?id=100078484055998-- Name: Nguyễn Nga-- CANH BAO: USER ID KHONG THUOC DANH SACH ADMIN DINH SAN
+UID:100031490957317-- Name: Thái Biên Cương
+UID:100003550307912-- Name: Mạnh Nguyễn
+
+3--> $sURL: https://www.facebook.com/groups/406692874523853/members/invited_admins -- Title: {"value":"(20+) Chợ Hải Sản Kobe | Facebook"} -- Check:  isAdmin = True 
+UID:https://www.facebook.com/profile.php?id=100094781612326-- Name: Bắp Quân-- CANH BAO: USER ID KHONG THUOC DANH SACH ADMIN DINH SAN
+UID:https://www.facebook.com/profile.php?id=100094435470229-- Name: Duc Thang Chu-- CANH BAO: USER ID KHONG THUOC DANH SACH ADMIN DINH SAN
+UID:https://www.facebook.com/profile.php?id=100078242414488-- Name: Long Đại Ca-- CANH BAO: USER ID KHONG THUOC DANH SACH ADMIN DINH SAN
+UID:https://www.facebook.com/profile.php?id=100075615700031-- Name: Tống Hồng Khán-- CANH BAO: USER ID KHONG THUOC DANH SACH ADMIN DINH SAN
+UID:https://www.facebook.com/hienviettuan.vn-- Name: Nguyễn Thu Hiền-- CANH BAO: USER ID KHONG THUOC DANH SACH ADMIN DINH SAN
+UID:https://www.facebook.com/mktviettuan-- Name: Nguyễn Trung Quân-- CANH BAO: USER ID KHONG THUOC DANH SACH ADMIN DINH SAN
+UID:https://www.facebook.com/vuminh.hoang.180-- Name: Vũ Minh Hoàng-- CANH BAO: USER ID KHONG THUOC DANH SACH ADMIN DINH SAN
+UID:https://www.facebook.com/tudonghoaiRoco-- Name: Nguyễn Thu Hiền-- CANH BAO: USER ID KHONG THUOC DANH SACH ADMIN DINH SAN
+
+4--> $sURL: https://www.facebook.com/groups/194989202545166/members/invited_admins -- Title: {"value":"(20+) Hải Sản Tươi Sống Nhật Bản | Facebook"} -- Check:  isAdmin = True 
+UID:https://www.facebook.com/traicaynhapkhauekago-- Name: Trái Cây Nhập Khẩu Cao Cấp EKAGO-- CANH BAO: USER ID KHONG THUOC DANH SACH ADMIN DINH SAN
+UID:https://www.facebook.com/profile.php?id=100094781612326-- Name: Bắp Quân-- CANH BAO: USER ID KHONG THUOC DANH SACH ADMIN DINH SAN
+UID:https://www.facebook.com/profile.php?id=100078242414488-- Name: Long Đại Ca-- CANH BAO: USER ID KHONG THUOC DANH SACH ADMIN DINH SAN
+UID:https://www.facebook.com/profile.php?id=100075615700031-- Name: Tống Hồng Khán-- CANH BAO: USER ID KHONG THUOC DANH SACH ADMIN DINH SAN
+UID:https://www.facebook.com/hienviettuan.vn-- Name: Nguyễn Thu Hiền-- CANH BAO: USER ID KHONG THUOC DANH SACH ADMIN DINH SAN
+UID:https://www.facebook.com/mktviettuan-- Name: Nguyễn Trung Quân-- CANH BAO: USER ID KHONG THUOC DANH SACH ADMIN DINH SAN
+UID:https://www.facebook.com/vuminh.hoang.180-- Name: Vũ Minh Hoàng-- CANH BAO: USER ID KHONG THUOC DANH SACH ADMIN DINH SAN
+UID:https://www.facebook.com/tudonghoaiRoco-- Name: Nguyễn Thu Hiền-- CANH BAO: USER ID KHONG THUOC DANH SACH ADMIN DINH SAN
+
+5--> $sURL: https://www.facebook.com/groups/943094893229330/members/invited_admins -- Check:  isAdmin = False
+6--> $sURL: https://www.facebook.com/groups/217512193447437/members/invited_admins -- Title: {"value":"(20+) Cộng Đồng Người Việt Tại Pháp | Facebook"} -- Check:  isAdmin = True 
+UID:https://www.facebook.com/profile.php?id=100078484055998-- Name: Nguyễn Nga-- CANH BAO: USER ID KHONG THUOC DANH SACH ADMIN DINH SAN
+
+7--> $sURL: https://www.facebook.com/groups/307426401210472members/invited_admins -- Check:  isAdmin = False
+8--> $sURL: https://www.facebook.com/groups/3605718169536028/members/invited_admins -- Title: {"value":"(20+) Hải Sản Tươi Sống Úc | Facebook"} -- Check:  isAdmin = True 
+UID:https://www.facebook.com/profile.php?id=100094781612326-- Name: Bắp Quân-- CANH BAO: USER ID KHONG THUOC DANH SACH ADMIN DINH SAN
+UID:https://www.facebook.com/profile.php?id=100094435470229-- Name: Duc Thang Chu-- CANH BAO: USER ID KHONG THUOC DANH SACH ADMIN DINH SAN
+UID:100078484055998-- Name: Nguyễn Nga-- CANH BAO: USER ID KHONG THUOC DANH SACH ADMIN DINH SAN
+UID:https://www.facebook.com/profile.php?id=100078242414488-- Name: Long Đại Ca-- CANH BAO: USER ID KHONG THUOC DANH SACH ADMIN DINH SAN
+UID:https://www.facebook.com/profile.php?id=100075615700031-- Name: Tống Hồng Khán-- CANH BAO: USER ID KHONG THUOC DANH SACH ADMIN DINH SAN
+UID:https://www.facebook.com/hienviettuan.vn-- Name: Nguyễn Thu Hiền-- CANH BAO: USER ID KHONG THUOC DANH SACH ADMIN DINH SAN
+UID:https://www.facebook.com/mktviettuan-- Name: Nguyễn Trung Quân-- CANH BAO: USER ID KHONG THUOC DANH SACH ADMIN DINH SAN
+UID:https://www.facebook.com/vuminh.hoang.180-- Name: Vũ Minh Hoàng-- CANH BAO: USER ID KHONG THUOC DANH SACH ADMIN DINH SAN
+UID:https://www.facebook.com/tudonghoaiRoco-- Name: Nguyễn Thu Hiền-- CANH BAO: USER ID KHONG THUOC DANH SACH ADMIN DINH SAN
+
+9--> $sURL: https://www.facebook.com/groups/cho.dau.moi.hai.san.tuoi.song.dai.loan/members/invited_admins -- Title: {"value":"(20+) Hải Sản Tươi Sống Đài Loan | Facebook"} -- Check:  isAdmin = True 
+UID:https://www.facebook.com/profile.php?id=100094435470229-- Name: Duc Thang Chu-- CANH BAO: USER ID KHONG THUOC DANH SACH ADMIN DINH SAN
+UID:https://www.facebook.com/profile.php?id=100078484055998-- Name: Nguyễn Nga-- CANH BAO: USER ID KHONG THUOC DANH SACH ADMIN DINH SAN
+
+10--> $sURL: https://www.facebook.com/groups/398762528072350/members/invited_admins -- Title: {"value":"(20+) Hải Sản Tươi Sống Hàn Quốc | Facebook"} -- Check:  isAdmin = True 
+UID:https://www.facebook.com/profile.php?id=100094781612326-- Name: Bắp Quân-- CANH BAO: USER ID KHONG THUOC DANH SACH ADMIN DINH SAN
+UID:https://www.facebook.com/profile.php?id=100094435470229-- Name: Duc Thang Chu-- CANH BAO: USER ID KHONG THUOC DANH SACH ADMIN DINH SAN
+UID:https://www.facebook.com/profile.php?id=100078242414488-- Name: Long Đại Ca-- CANH BAO: USER ID KHONG THUOC DANH SACH ADMIN DINH SAN
+UID:https://www.facebook.com/profile.php?id=100075615700031-- Name: Tống Hồng Khán-- CANH BAO: USER ID KHONG THUOC DANH SACH ADMIN DINH SAN
+UID:https://www.facebook.com/hienviettuan.vn-- Name: Nguyễn Thu Hiền-- CANH BAO: USER ID KHONG THUOC DANH SACH ADMIN DINH SAN
+UID:https://www.facebook.com/mktviettuan-- Name: Nguyễn Trung Quân-- CANH BAO: USER ID KHONG THUOC DANH SACH ADMIN DINH SAN
+UID:https://www.facebook.com/vuminh.hoang.180-- Name: Vũ Minh Hoàng-- CANH BAO: USER ID KHONG THUOC DANH SACH ADMIN DINH SAN
+UID:https://www.facebook.com/tudonghoaiRoco-- Name: Nguyễn Thu Hiền-- CANH BAO: USER ID KHONG THUOC DANH SACH ADMIN DINH SAN
+
+11--> $sURL: https://www.facebook.com/groups/472911261379646/members/invited_admins -- Title: {"value":"(20+) CUA HOÀNG ĐẾ EKAGO | Facebook"} -- Check:  isAdmin = True 
+UID:https://www.facebook.com/traicaynhapkhauekago-- Name: Trái Cây Nhập Khẩu Cao Cấp EKAGO-- CANH BAO: USER ID KHONG THUOC DANH SACH ADMIN DINH SAN
+UID:https://www.facebook.com/profile.php?id=100094781612326-- Name: Bắp Quân-- CANH BAO: USER ID KHONG THUOC DANH SACH ADMIN DINH SAN
+UID:https://www.facebook.com/profile.php?id=100094435470229-- Name: Duc Thang Chu-- CANH BAO: USER ID KHONG THUOC DANH SACH ADMIN DINH SAN
+UID:100078484055998-- Name: Nguyễn Nga-- CANH BAO: USER ID KHONG THUOC DANH SACH ADMIN DINH SAN
+UID:100078242414488-- Name: Long Đại Ca-- CANH BAO: USER ID KHONG THUOC DANH SACH ADMIN DINH SAN
+UID:https://www.facebook.com/hienviettuan.vn-- Name: Nguyễn Thu Hiền-- CANH BAO: USER ID KHONG THUOC DANH SACH ADMIN DINH SAN
+UID:https://www.facebook.com/mktviettuan-- Name: Nguyễn Trung Quân-- CANH BAO: USER ID KHONG THUOC DANH SACH ADMIN DINH SAN
+UID:https://www.facebook.com/vuminh.hoang.180-- Name: Vũ Minh Hoàng-- CANH BAO: USER ID KHONG THUOC DANH SACH ADMIN DINH SAN
+UID:https://www.facebook.com/tudonghoaiRoco-- Name: Nguyễn Thu Hiền-- CANH BAO: USER ID KHONG THUOC DANH SACH ADMIN DINH SAN
+

@@ -1,0 +1,95 @@
+Tool check admin group - Ekago
+Thời gian quét: 12:44:27 14-07-2023
+Số nhóm quét: 11
+Số nhóm lỗi: 2
+ID nhóm lỗi: https://www.facebook.com/groups/194989202545166/members/admins;https://www.facebook.com/groups/472911261379646/members/admins;
+
+SAU ĐÂY LÀ TỔNG KẾT 
+
+1--> $sURL: https://www.facebook.com/groups/399426588051811/members/admins -- Title: {"value":"(20+) Osaka Baito | Facebook"} -- Check:  isAdmin = True 
+UID:100088721532461-- Name: Trái Cây Nhập Khẩu Cao Cấp EKAGO
+UID:100031490957317-- Name: Thái Biên Cương
+UID:100008128510588-- Name: Nguyễn Thảo
+UID:100004451432430-- Name: Hiền Nguyễn
+UID:100003145548836-- Name: Thương Lê
+
+2--> $sURL: https://www.facebook.com/groups/1341654936297605/members/admins -- Title: {"value":"(20+) Chợ Hải Sản Tươi Sống Cao Cấp Hà Nội | Facebook"} -- Check:  isAdmin = True 
+UID:100088721532461-- Name: Trái Cây Nhập Khẩu Cao Cấp EKAGO
+UID:100008128510588-- Name: Nguyễn Thảo
+UID:100004451432430-- Name: Hiền Nguyễn
+UID:100003145548836-- Name: Thương Lê
+
+3--> $sURL: https://www.facebook.com/groups/406692874523853/members/admins -- Title: {"value":"(20+) Chợ Hải Sản Kobe | Facebook"} -- Check:  isAdmin = True 
+UID:100088721532461-- Name: Trái Cây Nhập Khẩu Cao Cấp EKAGO
+UID:100031490957317-- Name: Thái Biên Cương
+UID:100008128510588-- Name: Nguyễn Thảo
+UID:100004451432430-- Name: Hiền Nguyễn
+UID:100003550307912-- Name: Mạnh Nguyễn
+UID:100003145548836-- Name: Thương Lê
+UID:100022734320860-- Name: Đỗ Ngọc Hoài
+UID:100004438353680-- Name: Huong Royal
+
+4--> $sURL: https://www.facebook.com/groups/194989202545166/members/admins -- Title: {"value":"(20+) Hải Sản Tươi Sống Nhật Bản | Facebook"} -- Check:  isAdmin = True 
+UID:https://www.facebook.com/traicaynhapkhauekago-- Name: Trái Cây Nhập Khẩu Cao Cấp EKAGO-- CANH BAO: USER ID KHONG THUOC DANH SACH ADMIN DINH SAN
+UID:100088721532461-- Name: Trái Cây Nhập Khẩu Cao Cấp EKAGO
+UID:100068780775878-- Name: Phinny Ng
+UID:100004451432430-- Name: Hiền Nguyễn
+UID:100003145548836-- Name: Thương Lê
+UID:100040282746732-- Name: Linh Nhật
+UID:100022734320860-- Name: Đỗ Ngọc Hoài
+UID:100004438353680-- Name: Huong Royal
+
+5--> $sURL: https://www.facebook.com/groups/943094893229330/members/admins -- Title: {"value":"(20+) Hải Sản Tươi Sống Nhập Khẩu Cao Cấp EKAGO | Facebook"} -- Check:  isAdmin = True 
+UID:100004451432430-- Name: Hiền Nguyễn
+UID:100003145548836-- Name: Thương Lê
+
+6--> $sURL: https://www.facebook.com/groups/217512193447437/members/admins -- Title: {"value":"(20+) Cộng Đồng Người Việt Tại Pháp | Facebook"} -- Check:  isAdmin = True 
+UID:100088721532461-- Name: Trái Cây Nhập Khẩu Cao Cấp EKAGO
+UID:100061571925351-- Name: Chu Đức Thắng
+UID:100031490957317-- Name: Thái Biên Cương
+UID:100008128510588-- Name: Nguyễn Thảo
+UID:100004451432430-- Name: Hiền Nguyễn
+UID:100003145548836-- Name: Thương Lê
+
+7--> $sURL: https://www.facebook.com/groups/307426401210472members/admins -- Title: {"value":"(20+) Hải Sản Nhập Khẩu Cao Cấp Việt Nam | Facebook"} -- Check:  isAdmin = True 
+UID:100088721532461-- Name: Trái Cây Nhập Khẩu Cao Cấp EKAGO
+UID:100004451432430-- Name: Hiền Nguyễn
+UID:100003145548836-- Name: Thương Lê
+
+8--> $sURL: https://www.facebook.com/groups/3605718169536028/members/admins -- Title: {"value":"(20+) Hải Sản Tươi Sống Úc | Facebook"} -- Check:  isAdmin = True 
+UID:100088721532461-- Name: Trái Cây Nhập Khẩu Cao Cấp EKAGO
+UID:100061571925351-- Name: Chu Đức Thắng
+UID:100031490957317-- Name: Thái Biên Cương
+UID:100008128510588-- Name: Nguyễn Thảo
+UID:100004451432430-- Name: Hiền Nguyễn
+UID:100003145548836-- Name: Thương Lê
+
+9--> $sURL: https://www.facebook.com/groups/cho.dau.moi.hai.san.tuoi.song.dai.loan/members/admins -- Title: {"value":"(20+) Hải Sản Tươi Sống Đài Loan | Facebook"} -- Check:  isAdmin = True 
+UID:100088721532461-- Name: Trái Cây Nhập Khẩu Cao Cấp EKAGO
+UID:100061571925351-- Name: Chu Đức Thắng
+UID:100031490957317-- Name: Thái Biên Cương
+UID:100008128510588-- Name: Nguyễn Thảo
+UID:100004451432430-- Name: Hiền Nguyễn
+UID:100003145548836-- Name: Thương Lê
+
+10--> $sURL: https://www.facebook.com/groups/398762528072350/members/admins -- Title: {"value":"(20+) Hải Sản Tươi Sống Hàn Quốc | Facebook"} -- Check:  isAdmin = True 
+UID:100088721532461-- Name: Trái Cây Nhập Khẩu Cao Cấp EKAGO
+UID:100093572361284-- Name: Cong Ty Ekago
+UID:100031490957317-- Name: Thái Biên Cương
+UID:100008128510588-- Name: Nguyễn Thảo
+UID:100004451432430-- Name: Hiền Nguyễn
+UID:100003145548836-- Name: Thương Lê
+
+11--> $sURL: https://www.facebook.com/groups/472911261379646/members/admins -- Title: {"value":"(20+) CUA HOÀNG ĐẾ EKAGO | Facebook"} -- Check:  isAdmin = True 
+UID:https://www.facebook.com/traicaynhapkhauekago-- Name: Trái Cây Nhập Khẩu Cao Cấp EKAGO-- CANH BAO: USER ID KHONG THUOC DANH SACH ADMIN DINH SAN
+UID:100088721532461-- Name: Trái Cây Nhập Khẩu Cao Cấp EKAGO
+UID:100078468937418-- Name: Thắng Đầu Moi-- CANH BAO: USER ID KHONG THUOC DANH SACH ADMIN DINH SAN
+UID:100077957946219-- Name: Ngan Le Nghi-- CANH BAO: USER ID KHONG THUOC DANH SACH ADMIN DINH SAN
+UID:100075615700031-- Name: Tống Hồng Khán-- CANH BAO: USER ID KHONG THUOC DANH SACH ADMIN DINH SAN
+UID:100068780775878-- Name: Phinny Ng
+UID:100061571925351-- Name: Chu Đức Thắng
+UID:100061321681387-- Name: Nguyễn Hoa-- CANH BAO: USER ID KHONG THUOC DANH SACH ADMIN DINH SAN
+UID:100004451432430-- Name: Hiền Nguyễn
+UID:107487945474556-- Name: Bất Ngờ Chưa Cụ Già-- CANH BAO: USER ID KHONG THUOC DANH SACH ADMIN DINH SAN
+UID:107487212140565-- Name: Bất Ngờ Chưa Cụ Già-- CANH BAO: USER ID KHONG THUOC DANH SACH ADMIN DINH SAN
+

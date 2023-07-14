@@ -10,7 +10,7 @@
 #include "../utils/common_utils.au3"
 #include <Constants.au3>
 
-Local $CHECK_ADMIN_PREFIX = "members/admins", $CHECK_HIDE_ADMIN_PREFIX = "members/invited_admins"
+Local $CHECK_ADMIN_PREFIX = "members/admins", $CHECK_HIDE_ADMIN_PREFIX = "members/invited_admins", $notepadPlusPath = "C:\Program Files\Notepad++\notepad++.exe"
 start()
 
 Func test()
@@ -58,6 +58,9 @@ Func start()
 
 	$sSession = SetupChrome()
 
+	; an chuong trinh
+	_WD_Window($sSession,"MINIMIZE")
+
 	$sFilePathCheckAdmin = checkAdminGroup($sSession)
 	$sFilePathCheckHideAdmin = checkHideAdminGroup($sSession)
 
@@ -71,12 +74,14 @@ Func start()
 
 		writeLog("$sFilePath: " & $sFilePathCheckAdmin)
 		; Kiểm tra xem file có tồn tại không
+		
 		If FileExists($sFilePathCheckAdmin) And FileExists($sFilePathCheckHideAdmin) Then
 			; Mở file văn bản trong notepad
-			Run("notepad.exe " & $sFilePathCheckAdmin)
+			Run($notepadPlusPath & " " & $sFilePathCheckAdmin)
 
+			secondWait(3)
 			; Mở file văn bản trong notepad
-			Run("notepad.exe " & $sFilePathCheckHideAdmin)
+			Run($notepadPlusPath & " " & $sFilePathCheckHideAdmin)
 		Else
 			MsgBox($MB_OK, "Thông báo", "File kết quả không tồn tại. Kiểm tra lại trong đường dẫn output")
 		EndIf

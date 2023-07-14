@@ -54,7 +54,7 @@ EndFunc
 Func start()
 	;~ MsgBox($MB_ICONINFORMATION, "Thông báo", "Khi chương trình chạy sẽ đóng tất cả các trình duyệt chrome. Hãy chắc chắn rằng bạn đã lưu và đóng tất cả các tab và công việc quan trọng trước khi thực hiện chạy auto")
 	checkThenCloseChrome()
-	deleteFileInFolder()
+	;~ deleteFileInFolder()
 
 	$sSession = SetupChrome()
 

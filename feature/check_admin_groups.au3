@@ -59,7 +59,7 @@ Func start()
 	$sSession = SetupChrome()
 
 	; an chuong trinh
-	_WD_Window($sSession,"MINIMIZE")
+	;~ _WD_Window($sSession,"MINIMIZE")
 
 	$sFilePathCheckAdmin = checkAdminGroup($sSession)
 	$sFilePathCheckHideAdmin = checkHideAdminGroup($sSession)
@@ -149,6 +149,7 @@ Func checkHideAdminGroup($sSession)
 
 		$sElement = findElement($sSession, "//span[contains(text(), 'Quản trị viên & người kiểm duyệt đã mời')]") 
 
+		writeLog("title của element: " & getTextElement($sSession, $sElement))
 		If @error Then
 			$sTextOut = $sTextOut & "$sURL: " & $sURLs[$i] & " -- Check:  isAdmin = False"
 			$issueGroup = $issueGroup + 1
@@ -157,9 +158,26 @@ Func checkHideAdminGroup($sSession)
 		Else
 			Local $sScript = 'return document.title;'
 			Local $sTitle = _WD_ExecuteScript($sSession, $sScript)
+			
 			$sTextOut = $sTextOut & "$sURL: " & $sURLs[$i] & " -- Title: " & $sTitle &" -- Check:  isAdmin = True " & @CRLF 
+
+			; Cuon xuong cuoi cung
+			$sScript = 'window.scrollTo(0, document.body.scrollHeight);'
+			_WD_ExecuteScript($sSession, $sScript)
+			secondWait(3)
+
+			; Cuon xuong cuoi cung
+			$sScript = 'window.scrollTo(0, document.body.scrollHeight);'
+			_WD_ExecuteScript($sSession, $sScript)
+			secondWait(3)
+
 			; Chi check khi lam admin
-			$aChildElements = _WD_FindElement($sSession, $_WD_LOCATOR_ByXPath, "//span[contains(@class, 'xt0psk2')]/a[contains(@class, 'x1i10hfl xjbqb8w x6umtig x1b1mbwd xaqea5y xav7gou x9f619 x1ypdohk xt0psk2 xe8uvvx xdj266r x11i5rnm xat24cr x1mh8g0r xexx8yu x4uap5 x18d9i69 xkhd6sd x16tdsg8 x1hl2dhg xggy1nq x1a2a7pz xt0b8zv xzsf02u x1s688f')]", Default, True)
+			$timeLoad = 0 
+			While $timeLoad < 5
+				$aChildElements = _WD_FindElement($sSession, $_WD_LOCATOR_ByXPath, "//span[contains(@class, 'xt0psk2')]/a[contains(@class, 'x1i10hfl xjbqb8w x6umtig x1b1mbwd xaqea5y xav7gou x9f619 x1ypdohk xt0psk2 xe8uvvx xdj266r x11i5rnm xat24cr x1mh8g0r xexx8yu x4uap5 x18d9i69 xkhd6sd x16tdsg8 x1hl2dhg xggy1nq x1a2a7pz xt0b8zv xzsf02u x1s688f')]", Default, True)
+				secondWait(1)
+				$timeLoad = $timeLoad +1
+			WEnd
 			If @error Then
 				ConsoleWrite("Không tìm thấy phần tử con trong phần tử thứ " & $i & @CRLF)
 				_ArrayDisplay($aChildElements)
@@ -275,8 +293,23 @@ Func checkAdminGroup($sSession)
 			Local $sScript = 'return document.title;'
 			Local $sTitle = _WD_ExecuteScript($sSession, $sScript)
 			$sTextOut = $sTextOut & "$sURL: " & $sURLs[$i] & " -- Title: " & $sTitle &" -- Check:  isAdmin = True " & @CRLF 
-			; Chi check khi lam admin
-			$aChildElements = _WD_FindElement($sSession, $_WD_LOCATOR_ByXPath, "//span[contains(@class, 'xt0psk2')]/a[contains(@class, 'x1i10hfl xjbqb8w x6umtig x1b1mbwd xaqea5y xav7gou x9f619 x1ypdohk xt0psk2 xe8uvvx xdj266r x11i5rnm xat24cr x1mh8g0r xexx8yu x4uap5 x18d9i69 xkhd6sd x16tdsg8 x1hl2dhg xggy1nq x1a2a7pz xt0b8zv xzsf02u x1s688f')]", Default, True)
+
+			; Cuon xuong cuoi cung
+			$sScript = 'window.scrollTo(0, document.body.scrollHeight);'
+			_WD_ExecuteScript($sSession, $sScript)
+			secondWait(3)
+			; Cuon xuong cuoi cung
+			$sScript = 'window.scrollTo(0, document.body.scrollHeight);'
+			_WD_ExecuteScript($sSession, $sScript)
+			secondWait(3)
+
+			$timeLoad = 0 
+			While $timeLoad < 5
+				$aChildElements = _WD_FindElement($sSession, $_WD_LOCATOR_ByXPath, "//span[contains(@class, 'xt0psk2')]/a[contains(@class, 'x1i10hfl xjbqb8w x6umtig x1b1mbwd xaqea5y xav7gou x9f619 x1ypdohk xt0psk2 xe8uvvx xdj266r x11i5rnm xat24cr x1mh8g0r xexx8yu x4uap5 x18d9i69 xkhd6sd x16tdsg8 x1hl2dhg xggy1nq x1a2a7pz xt0b8zv xzsf02u x1s688f')]", Default, True)
+				secondWait(1)
+				$timeLoad = $timeLoad +1
+			WEnd
+			
 			If @error Then
 				ConsoleWrite("Không tìm thấy phần tử con trong phần tử thứ " & $i & @CRLF)
 				_ArrayDisplay($aChildElements)
